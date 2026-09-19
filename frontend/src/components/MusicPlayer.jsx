@@ -4,31 +4,124 @@ import { Disc, X, Play, Pause, SkipForward, SkipBack, Volume2, Music } from 'luc
 
 const playlist = [
   {
-    title: "Space-Opera Overture",
-    artist: "Star-Lord_I Mixtape",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    title: "Hooked on a Feeling",
+    artist: "Blue Swede",
+    src: "/audio/01-hooked-on-a-feeling.mp3",
   },
   {
-    title: "Cosmic Retro Groove",
-    artist: "Star-Lord_I Mixtape",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    title: "Go All the Way",
+    artist: "Raspberries",
+    src: "/audio/02-go-all-the-way.mp3",
   },
   {
-    title: "Milky Way Synthwave",
-    artist: "Star-Lord_I Mixtape",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    title: "Spirit in the Sky",
+    artist: "Norman Greenbaum",
+    src: "/audio/03-spirit-in-the-sky.mp3",
+  },
+  {
+    title: "Moonage Daydream",
+    artist: "David Bowie",
+    src: "/audio/04-moonage-daydream.mp3",
+  },
+  {
+    title: "Fooled Around and Fell in Love",
+    artist: "Elvin Bishop",
+    src: "/audio/05-fooled-around-and-fell-in-love.mp3",
+  },
+  {
+    title: "I'm Not in Love",
+    artist: "10cc",
+    src: "/audio/06-im-not-in-love.mp3",
+  },
+  {
+    title: "I Want You Back",
+    artist: "The Jackson 5",
+    src: "/audio/07-i-want-you-back.mp3",
+  },
+  {
+    title: "Come and Get Your Love",
+    artist: "Redbone",
+    src: "/audio/08-come-and-get-your-love.mp3",
+  },
+  {
+    title: "Cherry Bomb",
+    artist: "The Runaways",
+    src: "/audio/09-cherry-bomb.mp3",
+  },
+  {
+    title: "Escape (The Piña Colada Song)",
+    artist: "Rupert Holmes",
+    src: "/audio/10-escape-pina-colada-song.mp3",
+  },
+  {
+    title: "O-O-H Child",
+    artist: "Five Stairsteps",
+    src: "/audio/11-o-o-h-child.mp3",
+  },
+  {
+    title: "Ain't No Mountain High Enough",
+    artist: "Marvin Gaye & Tammi Terrell",
+    src: "/audio/12-aint-no-mountain-high-enough.mp3",
   },
 ];
 
 export default function MusicPlayer({ isOpen, onClose, onToggle }) {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  // Start on Raspberries - Go All the Way (index 1)
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.7);
   const audioRef = useRef(null);
+  const isInitialMount = useRef(true);
 
   const currentTrack = playlist[currentTrackIndex];
+
+  // Auto-play Go All the Way on site open and continue playing across site
+  useEffect(() => {
+    const attemptAutoplay = () => {
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch(() => {
+            // If browser autoplay policy blocks unmuted audio before user interaction,
+            // unlock audio on the very first user interaction anywhere on the document
+            const unlockAudio = () => {
+              if (audioRef.current) {
+                audioRef.current
+                  .play()
+                  .then(() => setIsPlaying(true))
+                  .catch(() => {});
+              }
+              ['click', 'touchstart', 'keydown'].forEach((evt) => {
+                window.removeEventListener(evt, unlockAudio);
+              });
+            };
+
+            ['click', 'touchstart', 'keydown'].forEach((evt) => {
+              window.addEventListener(evt, unlockAudio, { once: true });
+            });
+          });
+      }
+    };
+
+    const timer = setTimeout(attemptAutoplay, 250);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle track switches
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (audioRef.current && isPlaying) {
+      audioRef.current.play().catch(() => {});
+    }
+  }, [currentTrackIndex]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -226,8 +319,8 @@ export default function MusicPlayer({ isOpen, onClose, onToggle }) {
           </div>
 
           {/* Playlist Track Selection */}
-          <div className="space-y-1.5 max-h-32 overflow-y-auto pr-1">
-            <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Playlist Queue</span>
+          <div className="space-y-1.5 max-h-44 overflow-y-auto pr-1">
+            <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Awesome Mix Queue (12 Tracks)</span>
             {playlist.map((track, idx) => (
               <button
                 key={idx}
@@ -238,7 +331,11 @@ export default function MusicPlayer({ isOpen, onClose, onToggle }) {
                     : 'bg-gray-900/50 hover:bg-gray-900 text-gray-300 border border-gray-800/80'
                 }`}
               >
-                <span className="truncate pr-2">{idx + 1}. {track.title}</span>
+                <div className="truncate pr-2">
+                  <span className="font-mono text-purple-400 mr-1.5">{idx + 1}.</span>
+                  <span>{track.title}</span>
+                  <span className="text-[10px] text-gray-500 ml-1.5">• {track.artist}</span>
+                </div>
                 {currentTrackIndex === idx && isPlaying && (
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping shrink-0" />
                 )}
@@ -246,8 +343,8 @@ export default function MusicPlayer({ isOpen, onClose, onToggle }) {
             ))}
           </div>
 
-          <p className="text-[10px] text-gray-500 text-center mt-3 font-mono">
-            Drop MP3 files in <code className="text-purple-400">public/audio/</code> to replace tracks.
+          <p className="text-[10px] text-gray-400 text-center mt-3 font-mono">
+            ★ Star-Lord_I Awesome Mix Vol. 1 • Continuous Playback
           </p>
         </div>
       </div>
