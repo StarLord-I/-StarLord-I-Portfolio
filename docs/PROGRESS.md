@@ -35,20 +35,21 @@ The full web application, backend API, and Python AI service are scaffolded and 
 - [x] **AI Service (`ai-service/`)**:
   - FastAPI Python service (`main.py`) running on Uvicorn.
   - Endpoints: `GET /`, `POST /chat` for automated Q&A about skills and projects.
+- [x] **End-to-End API Wiring**: Connected frontend `MascotChatbot.jsx` and `Contact.jsx` to Express backend and FastAPI endpoints with robust offline fallbacks.
+- [x] **Git Repository Initialization & Version Control**: Initialized git repository and created initial commit with all project assets.
 - [x] **Build Validation**: Verified production build (`npm run build`) generates cleanly into `frontend/dist`.
 
 ---
 
 ## In progress
 
-- [ ] **End-to-End API Wiring**: Connect frontend `MascotChatbot.jsx` and `Contact.jsx` directly to the active Express backend / FastAPI endpoints with seamless offline fallback.
-- [ ] **Git Repository Initialization**: Initialize local git repository and stage the codebase for version control.
+- None (All core development, wiring, and git initialization phases successfully completed).
 
 ---
 
 ## Next up
 
-1. **Backend Contact Storage / Dispatch**: Wire `/api/contact` to an email transport (e.g., Nodemailer/Resend) or database collection.
+1. **Backend Contact Storage / Dispatch**: Wire `/api/contact` to an email transport (e.g., Nodemailer/Resend) or database collection when deploying live.
 2. **AI Service Enhancement**: Integrate model-backed inference or enhanced context retrieval into `ai-service/main.py` if broader conversational queries are desired.
 3. **Deployment**:
    - Frontend to Vercel / Netlify.
