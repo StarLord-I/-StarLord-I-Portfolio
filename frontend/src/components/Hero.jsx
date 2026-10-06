@@ -45,18 +45,28 @@ export default function Hero({ onOpenMusic }) {
           <div className="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
             <a
               href="#projects"
-              className="px-5 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold hover:opacity-90 transition-all flex items-center space-x-1 shadow-sm"
+              className="group relative overflow-hidden px-5 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center space-x-1.5 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-accent)]"
             >
-              <span>view projects</span>
-              <ArrowDown className="w-3.5 h-3.5" />
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 dark:via-black/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+              <span className="relative z-10 flex items-center gap-1.5">
+                <span>view projects</span>
+                <ArrowDown className="w-3.5 h-3.5" />
+              </span>
             </a>
             <a
               href="#contact"
-              className="px-5 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1C1C1E] text-black dark:text-white font-semibold hover:border-[#1B5DEF] dark:hover:border-[#4A7FF7] transition-all flex items-center space-x-1"
+              className="px-5 py-3 rounded-lg border border-hairline bg-white dark:bg-[#1C1C1E] text-black dark:text-white font-semibold hover:border-[var(--blue-accent)] hover:text-[var(--blue-accent)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center space-x-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-accent)]"
             >
               <span>get in touch</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
+            <button
+              onClick={onOpenMusic}
+              aria-label="Open retro cassette music mixtape"
+              className="px-4 py-3 rounded-lg border border-[#E25327]/30 dark:border-[#E8734B]/30 bg-[#E25327]/10 dark:bg-[#E8734B]/10 text-[#E25327] dark:text-[#E8734B] font-semibold hover:bg-[#E25327]/20 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center space-x-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-accent)]"
+            >
+              <span>♫ awesome mix</span>
+            </button>
           </div>
 
           {/* Connect Links */}
@@ -66,7 +76,7 @@ export default function Hero({ onOpenMusic }) {
               href="https://github.com/StarLord-I"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors flex items-center gap-1"
+              className="hover:text-[var(--blue-accent)] transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--blue-accent)] rounded px-1"
             >
               <span>github</span>
               <ExternalLink className="w-3 h-3" />
@@ -75,14 +85,14 @@ export default function Hero({ onOpenMusic }) {
               href="https://linkedin.com/in/jiya-khan-pathan-799827423"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors flex items-center gap-1"
+              className="hover:text-[var(--blue-accent)] transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--blue-accent)] rounded px-1"
             >
               <span>linkedin</span>
               <ExternalLink className="w-3 h-3" />
             </a>
             <a
               href="mailto:contact@jiya.dev"
-              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors"
+              className="hover:text-[var(--blue-accent)] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--blue-accent)] rounded px-1"
             >
               email ↗
             </a>

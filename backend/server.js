@@ -45,6 +45,10 @@ app.post('/api/chatbot', (req, res) => {
   res.json({ reply });
 });
 
-app.listen(PORT, () => {
-  console.log(`Star-Lord_I backend server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Star-Lord_I backend server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

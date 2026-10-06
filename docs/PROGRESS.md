@@ -5,8 +5,8 @@
 
 ## Current status
 
-**Active Implementation Phase — Refined, Modernized & Verified.**  
-The full web application has been streamlined and updated with a macOS-style terminal box, theme-aligned extended loading screen with skip button, robust light/dark mode contrast support, and removal of deprecated mascot/mixtape features. The frontend production build compiles cleanly with zero errors.
+**Active Implementation Phase — Full-Stack & Deployment Readiness.**  
+The frontend v3.0 has been fully streamlined, modernized with Obsidian telemetry and Lab Terminal aesthetics, and built successfully. Backend Node/Express API and AI services are configured for full-stack integration and production deployment via Vercel.
 
 ---
 
@@ -16,7 +16,7 @@ The full web application has been streamlined and updated with a macOS-style ter
 - [x] **Pronoun & Identity Audit**: Standardized all project files and descriptions to strictly use **he/him** / **his** pronouns for Jiya Khan Pathan (Star-Lord_I).
 - [x] **Frontend Implementation (`frontend/`)**:
   - Scaffolded React 18 + Vite + Tailwind CSS + Framer Motion.
-  - **Navbar (`Navbar.jsx`)**: Responsive glassmorphism nav with mobile drawer, brand badge, theme toggle, and resume CTA.
+  - **Navbar (`Navbar.jsx`)**: Responsive glassmorphic nav with mobile drawer, brand badge, theme toggle, and resume CTA.
   - **Hero (`Hero.jsx`)**: Profile introduction, status pill, CTAs, social connection links, and embedding the `TerminalBox`.
   - **Terminal Box (`TerminalBox.jsx`)**: macOS-style terminal window representation with traffic light dots, `whoami` telemetry, `cat skills.json` grid display, and `npx jiya-dev` clipboard copy action.
   - **About (`About.jsx`)**: Background details, B.Tech CSE (2022–2026), FuturePoint Technologies internship credit, and categorized skill capabilities.
@@ -24,18 +24,21 @@ The full web application has been streamlined and updated with a macOS-style ter
   - **Experience (`Experience.jsx`)**: Timeline card for Frontend Development Intern role at FuturePoint Technologies with key achievements.
   - **Contact (`Contact.jsx`)**: Transmission form with animated state transitions and direct social channels (GitHub, LinkedIn, Email).
   - **Loading Screen (`LoadingScreen.jsx`)**: Immersive startup loading sequence matched to dark/light themes, extended duration (~2-2.5s), smooth progress bar, and skip button.
-- [x] **Backend & AI Services (`backend/`, `ai-service/`)**: Express API endpoints and FastAPI service available for extension.
-- [x] **Light & Dark Mode Contrast Polish**: Fully verified high-contrast visibility and color tokens across all sections and themes.
+- [x] **Backend & AI Services (`backend/`, `ai-service/`)**:
+  - Express.js API (`backend/server.js`) with health check, contact transmission, and mascot chatbot endpoints.
+  - FastAPI AI service (`ai-service/main.py`) for intelligent mascot responses.
+  - Export configuration for serverless deployment (Vercel).
+- [x] **Deployment Configuration**:
+  - Created `vercel.json` for unified Vite frontend and Express serverless backend routing.
 - [x] **Build Validation**: Verified production build (`npm run build`) generates cleanly into `frontend/dist`.
 
 ---
 
 ## Next up
 
-1. **Deployment**:
-   - Deploy frontend to Vercel.
-   - Deploy backend/AI services if needed.
-2. **Performance & SEO Polish**: Meta tags, OpenGraph preview cards for social sharing, and accessibility audits.
+1. **Live Deployment & Verification**:
+   - Push to GitHub and deploy live.
+   - Run live smoke tests on contact transmission and Sprout chatbot.
 
 ---
 

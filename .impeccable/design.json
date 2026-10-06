@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T20:29:30.000Z",
+  "title": "Design System: Star-Lord_I Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Electric Cyber Cobalt",
+        "canonical": "#4A7FF7",
+        "tonalRamp": ["#0B1B47", "#132D73", "#1B43A1", "#2860D4", "#4A7FF7", "#76A0F9", "#A6C2FB", "#DCE7FD"]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Retro Cassette Flame",
+        "canonical": "#E8734B",
+        "tonalRamp": ["#3D190E", "#662A17", "#963D21", "#C7532D", "#E8734B", "#F09879", "#F7BFAC", "#FDE8E1"]
+      },
+      "tertiary": {
+        "role": "tertiary",
+        "displayName": "Emerald Signal",
+        "canonical": "#22C55E",
+        "tonalRamp": ["#083818", "#0E5727", "#157A38", "#1DA14B", "#22C55E", "#58D786", "#93E6B2", "#DAF8E5"]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Obsidian Canvas",
+        "canonical": "#141415",
+        "tonalRamp": ["#0D0D0E", "#141415", "#1C1C1E", "#242426", "#3A3A3D", "#666464", "#9E9E9E", "#F4F4F4"]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Console Surface",
+        "canonical": "#1C1C1E",
+        "tonalRamp": ["#111112", "#1C1C1E", "#28282B", "#38383D", "#4F4F55", "#73737C", "#A2A2AA", "#EEEEF0"]
+      },
+      "neutral-surface-subtle": {
+        "role": "neutral",
+        "displayName": "Elevated Chamber",
+        "canonical": "#242426",
+        "tonalRamp": ["#141415", "#1E1E20", "#242426", "#2D2D30", "#45454A", "#6E6E75", "#A0A0A8", "#F0F0F2"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Phosphor High-Contrast Text",
+        "canonical": "#F4F4F4",
+        "tonalRamp": ["#202022", "#404044", "#707074", "#A8A8AC", "#D0D0D4", "#E8E8EC", "#F4F4F4", "#FFFFFF"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Steel Gray",
+        "canonical": "#9E9E9E",
+        "tonalRamp": ["#1E1E1E", "#383838", "#585858", "#787878", "#9E9E9E", "#BEBEBE", "#DCDCDC", "#F5F5F5"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero greeting and primary statement." },
+      "headline": { "displayName": "Headline", "purpose": "Major section titles and milestones." },
+      "title": { "displayName": "Title", "purpose": "Project and role card titles." },
+      "body": { "displayName": "Body", "purpose": "Narrative and case descriptions (max 65ch)." },
+      "label": { "displayName": "Mono Label", "purpose": "Telemetry indices, status badges, and code tokens." }
+    },
+    "shadows": [
+      {
+        "name": "hover-glow",
+        "value": "0 4px 20px rgba(74, 127, 247, 0.15)",
+        "purpose": "Active electric cobalt hover glow on cards and key interactive elements."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-spring",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Snappy card hover lift and spring transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "High-contrast action button with monospace typography and spring hover lift.",
+      "html": "<button class=\"ds-btn-primary\"><span>VIEW PROJECTS</span><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14M19 12l-7 7-7-7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; color: #141415; padding: 10px 18px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background 0.2s ease; } .ds-btn-primary:hover { opacity: 0.95; background: #E8E8E8; transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid #4A7FF7; outline-offset: 2px; } .ds-icon { stroke: currentColor; }"
+    },
+    {
+      "name": "Secondary Action Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Subtle surface outline button with cobalt border shift on hover.",
+      "html": "<button class=\"ds-btn-secondary\"><span>GET IN TOUCH</span><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 6px; background: #1C1C1E; color: #F4F4F4; padding: 10px 18px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; border: 1px solid rgba(244, 244, 244, 0.12); cursor: pointer; transition: border-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease; } .ds-btn-secondary:hover { border-color: #4A7FF7; color: #4A7FF7; transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: 2px solid #4A7FF7; outline-offset: 2px; } .ds-icon { stroke: currentColor; }"
+    },
+    {
+      "name": "Console Telemetry Pill",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Real-time system availability status pill with pulsing indicator.",
+      "html": "<div class=\"ds-pill\"><span class=\"ds-pulse-dot\"></span><span>Available for full-stack opportunities</span><span class=\"ds-pill-divider\">|</span><span class=\"ds-pill-highlight\">CSE '26</span></div>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 9999px; background: #1C1C1E; border: 1px solid rgba(244, 244, 244, 0.12); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9E9E9E; } .ds-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); animation: ds-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.9); } } .ds-pill-divider { color: #3A3A3D; } .ds-pill-highlight { color: #F4F4F4; font-weight: 600; }"
+    },
+    {
+      "name": "Interactive Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Obsidian telemetry project card with hairline boundary and hover illumination.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-category\">01 // WEB APP</div><h3 class=\"ds-card-title\">CineFinder</h3><p class=\"ds-card-body\">A responsive movie discovery platform built with React and the MERN stack featuring Framer Motion physics.</p><div class=\"ds-card-tags\"><span class=\"ds-tag\">React.js</span><span class=\"ds-tag\">Framer Motion</span><span class=\"ds-tag\">Tailwind</span></div></div>",
+      "css": ".ds-card { background: #1C1C1E; border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 12px; padding: 22px; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; } .ds-card:hover { transform: translateY(-2px); border-color: #4A7FF7; box-shadow: 0 4px 20px rgba(74, 127, 247, 0.15); } .ds-card-category { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: #E8734B; letter-spacing: 0.05em; margin-bottom: 8px; } .ds-card-title { font-size: 18px; font-weight: 700; color: #F4F4F4; margin: 0 0 8px 0; } .ds-card-body { font-size: 13px; line-height: 1.5; color: #9E9E9E; margin: 0 0 16px 0; } .ds-card-tags { display: flex; flex-wrap: wrap; gap: 6px; } .ds-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 4px; background: rgba(244, 244, 244, 0.06); color: #F4F4F4; }"
+    },
+    {
+      "name": "Telemetry Form Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Dark inset input field with uppercase monospace label and cobalt focus border.",
+      "html": "<div class=\"ds-form-field\"><label class=\"ds-label\">TRANSMISSION FREQUENCY <span class=\"ds-required\">*</span></label><input type=\"text\" class=\"ds-input\" placeholder=\"alex@star-command.io\" value=\"cadet@starfleet.org\" /></div>",
+      "css": ".ds-form-field { display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; width: 100%; max-width: 320px; } .ds-label { font-size: 11px; color: #9E9E9E; text-transform: uppercase; letter-spacing: 0.05em; } .ds-required { color: #E8734B; font-weight: bold; } .ds-input { background: #242426; border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 8px; padding: 10px 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: #F4F4F4; transition: border-color 0.2s ease, box-shadow 0.2s ease; outline: none; } .ds-input:focus { border-color: #4A7FF7; box-shadow: 0 0 0 1px #4A7FF7; }"
+    },
+    {
+      "name": "Console Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky top bar with cobalt telemetry pip, brand handle, and numbered routes.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-brand\"><span class=\"ds-nav-dot\"></span><span class=\"ds-nav-name\">jiya.dev</span><span class=\"ds-nav-sub\">// starlord_i</span></div><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link\"><span class=\"ds-nav-num\">01.</span> about</a><a href=\"#\" class=\"ds-nav-link ds-nav-link-active\"><span class=\"ds-nav-num\">03.</span> projects</a></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; background: rgba(20, 20, 21, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 10px; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; width: 100%; box-sizing: border-box; } .ds-nav-brand { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #F4F4F4; } .ds-nav-dot { width: 8px; height: 8px; border-radius: 50%; background: #4A7FF7; } .ds-nav-sub { font-size: 11px; color: #9E9E9E; font-weight: 400; } .ds-nav-links { display: flex; align-items: center; gap: 14px; font-size: 12px; } .ds-nav-link { color: #9E9E9E; text-decoration: none; transition: color 0.15s ease; } .ds-nav-link:hover, .ds-nav-link-active { color: #F4F4F4; } .ds-nav-num { opacity: 0.6; }"
+    },
+    {
+      "name": "Terminal Diagnostic Box",
+      "kind": "custom",
+      "refersTo": "terminal-box",
+      "description": "Interactive zsh command console with macOS window indicators and telemetry output.",
+      "html": "<div class=\"ds-terminal\"><div class=\"ds-term-header\"><div class=\"ds-term-dots\"><span class=\"ds-dot ds-dot-red\"></span><span class=\"ds-dot ds-dot-yellow\"></span><span class=\"ds-dot ds-dot-green\"></span></div><span class=\"ds-term-title\">jiya@starlord-mbp:~ (zsh)</span><span class=\"ds-term-badge\">active</span></div><div class=\"ds-term-body\"><div class=\"ds-term-prompt\"><span class=\"ds-prompt-arrow\">➜</span> <span class=\"ds-prompt-path\">~</span> <span class=\"ds-prompt-cmd\">whoami</span></div><div class=\"ds-term-out\">Jiya Khan Pathan • Full-Stack Engineer [React, Node.js, Python]</div></div></div>",
+      "css": ".ds-terminal { background: #161618; border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 12px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 11px; width: 100%; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); box-sizing: border-box; } .ds-term-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #1E1E20; border-bottom: 1px solid rgba(244, 244, 244, 0.10); } .ds-term-dots { display: flex; gap: 6px; } .ds-dot { width: 9px; height: 9px; border-radius: 50%; } .ds-dot-red { background: #EF4444; } .ds-dot-yellow { background: #F59E0B; } .ds-dot-green { background: #10B981; } .ds-term-title { color: #9E9E9E; font-size: 11px; } .ds-term-badge { font-size: 9px; color: #10B981; text-transform: uppercase; } .ds-term-body { padding: 12px; background: rgba(18, 18, 20, 0.8); } .ds-term-prompt { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; } .ds-prompt-arrow { color: #4A7FF7; font-weight: bold; } .ds-prompt-path { color: #C084FC; } .ds-prompt-cmd { color: #F4F4F4; font-weight: 600; } .ds-term-out { color: #9E9E9E; padding-left: 14px; line-height: 1.5; }"
+    },
+    {
+      "name": "Retro Cassette Mixtape Player",
+      "kind": "custom",
+      "refersTo": "music-player",
+      "description": "Floating retro tape player with spinning tape reels, tape window, and active equalizer bars.",
+      "html": "<div class=\"ds-cassette\"><div class=\"ds-cas-head\"><div class=\"ds-cas-badge\"><span class=\"ds-cas-pip\"></span><span>AWESOME MIX VOL. 1</span></div><span class=\"ds-cas-time\">2:52</span></div><div class=\"ds-cas-window\"><div class=\"ds-reel ds-reel-spin\"></div><div class=\"ds-tape-bridge\"><div class=\"ds-eq\"><span class=\"ds-eq-bar ds-eq-1\"></span><span class=\"ds-eq-bar ds-eq-2\"></span><span class=\"ds-eq-bar ds-eq-3\"></span><span class=\"ds-eq-bar ds-eq-4\"></span></div></div><div class=\"ds-reel ds-reel-spin\"></div></div><div class=\"ds-cas-track\">Hooked on a Feeling • Blue Swede</div></div>",
+      "css": ".ds-cassette { background: #161618; border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 12px; padding: 12px; font-family: 'JetBrains Mono', monospace; width: 100%; max-width: 280px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); box-sizing: border-box; } .ds-cas-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 10px; } .ds-cas-badge { display: flex; align-items: center; gap: 6px; font-weight: 700; color: #F4F4F4; } .ds-cas-pip { width: 6px; height: 6px; border-radius: 50%; background: #E8734B; } .ds-cas-time { color: #9E9E9E; } .ds-cas-window { background: #1F1F22; border: 1px solid rgba(244, 244, 244, 0.08); border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; } .ds-reel { width: 24px; height: 24px; border-radius: 50%; border: 3px dashed #E8734B; } .ds-reel-spin { animation: ds-spin 3s linear infinite; } @keyframes ds-spin { 100% { transform: rotate(360deg); } } .ds-tape-bridge { display: flex; align-items: center; justify-content: center; } .ds-eq { display: flex; gap: 3px; align-items: flex-end; height: 16px; } .ds-eq-bar { width: 3px; background: #E8734B; border-radius: 1px; } .ds-eq-1 { height: 12px; animation: ds-eq 0.8s ease-in-out infinite alternate; } .ds-eq-2 { height: 16px; animation: ds-eq 0.6s ease-in-out 0.2s infinite alternate; } .ds-eq-3 { height: 8px; animation: ds-eq 1s ease-in-out 0.4s infinite alternate; } .ds-eq-4 { height: 14px; animation: ds-eq 0.7s ease-in-out 0.1s infinite alternate; } @keyframes ds-eq { 0% { transform: scaleY(0.3); } 100% { transform: scaleY(1); } } .ds-cas-track { font-size: 11px; color: #F4F4F4; text-align: center; }"
+    },
+    {
+      "name": "Sprout Botanical Companion",
+      "kind": "custom",
+      "refersTo": "mascot-chatbot",
+      "description": "Original botanical interactive companion with responsive waving animations and natural AI dialogue.",
+      "html": "<div class=\"ds-sprout-widget\"><div class=\"ds-sprout-bubble\"><span>I am Sprout! 🌱 Ask me about Jiya's projects!</span></div><div class=\"ds-sprout-avatar\"><span class=\"ds-sprout-leaf\">🌱</span><span class=\"ds-sprout-pulse\"></span></div></div>",
+      "css": ".ds-sprout-widget { display: flex; align-items: center; gap: 10px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-sprout-bubble { background: #1C1C1E; border: 1px solid rgba(244, 244, 244, 0.12); border-radius: 12px; padding: 8px 12px; font-size: 11px; color: #F4F4F4; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); } .ds-sprout-avatar { position: relative; width: 36px; height: 36px; border-radius: 50%; background: #242426; border: 1px solid rgba(34, 197, 94, 0.4); display: flex; align-items: center; justify-content: center; font-size: 18px; } .ds-sprout-leaf { animation: ds-wave 3.5s ease-in-out infinite; } @keyframes ds-wave { 0%, 100% { transform: rotate(0deg); } 20% { transform: rotate(-12deg); } 40% { transform: rotate(12deg); } 60% { transform: rotate(-8deg); } 80% { transform: rotate(0deg); } } .ds-sprout-pulse { position: absolute; top: -1px; right: -1px; width: 8px; height: 8px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 6px #22C55E; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lab Terminal",
+    "overview": "The Star-Lord_I design language treats the browser viewport as an advanced instrumentation console: crisp, high-contrast, mathematically structured, and tactile. Instead of generic software gradients or heavy muddy shadows, surfaces are obsidian dark, structured with hairline perimeter boundaries, and punctuated with high-density monospace telemetry.\n\nEvery section balances industrial discipline with electric energy. Dark matter (#141415) anchors the background canvas, elevated surfaces (#1C1C1E) provide card clarity, and high-octane cyber cobalt (#4A7FF7) and retro tape orange (#E8734B) illuminate active states like phosphor gauges powering up under touch.",
+    "keyCharacteristics": [
+      "Obsidian Telemetry Canvas: Deep, matte dark surfaces (#141415) overlaid with subtle dot-matrix coordinates.",
+      "Bifurcated Typography: Humanist geometric headlines (Plus Jakarta Sans) paired strictly with code-line monospace metadata (JetBrains Mono).",
+      "Tactile Hairline Boundaries: Precise 1px borders providing structure without visual weight.",
+      "Kinetic Micro-Feedback: Snappy hover lifts (-2px) and glowing phosphor border transitions."
+    ],
+    "rules": [
+      {
+        "name": "The 10% Phosphor Rule",
+        "body": "Neon cobalt and cassette flame are reserved for key CTAs, hover outlines, and system telemetry pills. Over 90% of visual mass must remain pure obsidian and crisp white text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Boundary Rule",
+        "body": "Structural division is achieved exclusively with 1px hairline borders (rgba(244, 244, 244, 0.12) in dark mode); drop shadows are never used to define edge boundaries.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dual-Taxonomy Rule",
+        "body": "Every structural heading must be preceded by a numbered monospace index tag (e.g. 03 // FEATURED WORK) in JetBrains Mono. Human content uses Plus Jakarta Sans; machine/status content uses JetBrains Mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces never cast heavy physical shadows at rest. Shadow is an active state response that communicates interactive readiness or focus.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do precede major section headlines with a numbered monospace slug in JetBrains Mono (01 // ABOUT ME).",
+      "Do use hairline borders (border: 1px solid var(--border-color)) to define element perimeters.",
+      "Do elevate interactive elements by exactly -2px on hover with a smooth cubic-bezier curve.",
+      "Do enforce high contrast for text against obsidian backgrounds (#F4F4F4 on #141415)."
+    ],
+    "donts": [
+      "Don't use generic multi-colored blurred drop shadows or muddy glows behind static components.",
+      "Don't use rounded organic radii greater than 16px on rectangular cards.",
+      "Don't use saturated accent colors across large surface fills; accents are strictly phosphor outlines, badges, and cursor highlights.",
+      "Don't mix sans-serif into metadata badges or terminal outputs; keep code telemetry strictly in JetBrains Mono."
+    ]
+  }
+}

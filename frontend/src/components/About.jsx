@@ -27,7 +27,7 @@ export default function About() {
   return (
     <>
       {/* ==================== 01 // ABOUT SECTION ==================== */}
-      <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-black/10 dark:border-white/10">
+      <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-hairline">
         <div className="space-y-4 max-w-3xl">
           <div className="font-mono text-xs text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold tracking-wider uppercase">
             01 // BACKGROUND
@@ -40,19 +40,19 @@ export default function About() {
               I am a final-year Computer Science Engineering student (2022–2026). Over the past four years, I've developed a deep focus on creating resilient full-stack web applications that combine robust backend logic with clean, tactile frontends.
             </p>
             <p>
-              My peers and online collaborators know me by my handle <strong className="text-black dark:text-white font-medium">Star-Lord</strong>. It’s a reflection of my curiosity, appreciation for great music, and a desire to build software with a distinctive creative voice.
+              My peers and online collaborators know me by my handle <strong className="text-black dark:text-white font-medium">Star-Lord_I</strong>. It’s a reflection of my curiosity, appreciation for great music, and a desire to build software with a distinctive creative voice.
             </p>
             <p>
               During my internship at <strong className="text-black dark:text-white font-medium">FuturePoint Technologies</strong>, I built responsive client portals, optimized frontend rendering performance, and collaborated on clean UI architectures.
             </p>
           </div>
 
-          <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-mono text-gray-500 dark:text-gray-400">
-            <div className="flex items-center gap-2">
+          <div className="pt-4 flex flex-wrap items-center gap-4 text-xs font-mono text-gray-500 dark:text-gray-400">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-hairline bg-white dark:bg-[#1C1C1E]">
               <GraduationCap className="w-4 h-4 text-[#1B5DEF] dark:text-[#4A7FF7]" />
-              <span>B.Tech in Computer Science (2022–2026)</span>
+              <span>B.Tech in Computer Science <span className="tabular-nums">(2022–2026)</span></span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-hairline bg-white dark:bg-[#1C1C1E]">
               <Briefcase className="w-4 h-4 text-[#E25327] dark:text-[#E8734B]" />
               <span>Internship @ FuturePoint Tech</span>
             </div>
@@ -61,7 +61,7 @@ export default function About() {
       </section>
 
       {/* ==================== 02 // SKILLS SECTION ==================== */}
-      <section id="skills" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-black/10 dark:border-white/10">
+      <section id="skills" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-hairline">
         <div className="mb-8">
           <div className="font-mono text-xs text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold tracking-wider uppercase mb-1">
             02 // CAPABILITIES
@@ -79,7 +79,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="card-interactive bg-white dark:bg-[#1C1C1E] border border-black/10 dark:border-white/10 p-6 rounded-xl shadow-sm"
+              className="card-interactive bg-white dark:bg-[#1C1C1E] border border-hairline p-6 rounded-xl shadow-sm"
             >
               <div className="flex items-center space-x-2 mb-4">
                 <span className={cat.color}>{cat.icon}</span>
