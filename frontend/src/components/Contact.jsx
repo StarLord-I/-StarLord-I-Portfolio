@@ -93,7 +93,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-hairline">
-      
+
       {/* Section Header */}
       <div className="mb-12 text-center max-w-2xl mx-auto">
         <div className="font-mono text-xs text-[#E25327] dark:text-[#E8734B] font-semibold tracking-wider uppercase mb-1">
@@ -108,7 +108,7 @@ export default function Contact() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-4xl mx-auto">
-        
+
         {/* Left: Contact Channels */}
         <motion.div
           initial={{ opacity: 0, x: -15 }}
@@ -282,7 +282,7 @@ export default function Contact() {
                 >
                   {/* Taste Skill Directional Micro-sheen Sweep */}
                   <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                  
+
                   <div className="relative z-10 flex items-center justify-center space-x-2">
                     <Send className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     <span>{isSubmitting ? 'TRANSMITTING...' : 'SEND TRANSMISSION →'}</span>
