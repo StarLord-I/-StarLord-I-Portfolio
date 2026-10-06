@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -6,14 +6,24 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-import MusicPlayer from './components/MusicPlayer';
-import MascotChatbot from './components/MascotChatbot';
-import { Rocket, Heart } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isMusicOpen, setIsMusicOpen] = useState(false);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  const [theme, setTheme] = useState('dark'); // 'dark' | 'light'
+
+  // Initialize theme
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <>
@@ -21,46 +31,35 @@ export default function App() {
         <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       )}
 
-      <div className="min-h-screen bg-[#060810] text-gray-100 flex flex-col font-sans">
-        {/* Navigation */}
+      <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-main)] flex flex-col font-sans bg-dot-grid transition-colors">
+
+        {/* Sticky Top Navigation */}
         <Navbar
-          onToggleMusic={() => setIsMusicOpen(!isMusicOpen)}
-          onToggleChatbot={() => setIsChatbotOpen(!isChatbotOpen)}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         {/* Main Content Sections */}
         <main className="flex-1">
-          <Hero
-            onOpenChatbot={() => setIsChatbotOpen(true)}
-            onOpenMusic={() => setIsMusicOpen(true)}
-          />
+          <Hero />
           <About />
           <Projects />
           <Experience />
           <Contact />
         </main>
 
-        {/* Footer */}
-        <footer className="py-8 px-4 bg-[#04060b] border-t border-gray-800 text-center text-xs text-gray-500">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Rocket className="w-4 h-4 text-purple-400" />
-              <span className="font-medium text-gray-300">Star-Lord_I Portfolio</span>
-              <span>© {new Date().getFullYear()} Jiya Khan Pathan</span>
+        {/* Minimal Footer */}
+        <footer className="py-8 px-4 border-t border-black/10 dark:border-white/10 text-center font-mono text-xs text-gray-500 dark:text-gray-400">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>
+              <span className="font-semibold text-black dark:text-white">jiya.dev</span> • Jiya Khan Pathan
             </div>
-            <p className="flex items-center gap-1">
-              Crafted with <Heart className="w-3.5 h-3.5 text-red-400 fill-red-400" /> and space-opera energy
-            </p>
+            <div>
+              <span>Designed with minimal craft & high-performance architecture</span>
+            </div>
           </div>
         </footer>
 
-        {/* Floating Widgets (MusicPlayer stays mounted for continuous background playback) */}
-        <MusicPlayer
-          isOpen={isMusicOpen}
-          onClose={() => setIsMusicOpen(false)}
-          onToggle={() => setIsMusicOpen(!isMusicOpen)}
-        />
-        <MascotChatbot isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
       </div>
     </>
   );

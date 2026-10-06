@@ -1,104 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Cpu, Wrench, Sparkles, GraduationCap, Award } from 'lucide-react';
+import { Code2, Cpu, Wrench, GraduationCap, Briefcase } from 'lucide-react';
 
 export default function About() {
   const skillCategories = [
     {
-      title: 'Frontend & UI',
-      icon: <Code2 className="w-5 h-5 text-cyan-400" />,
-      skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite', 'Framer Motion'],
+      title: 'Frontend Architecture',
+      color: 'text-[#E25327] dark:text-[#E8734B]',
+      icon: <Code2 className="w-4 h-4" />,
+      skills: ['React 18 & Vite', 'Tailwind CSS', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'Framer Motion', 'Responsive UI/UX'],
     },
     {
       title: 'Backend & APIs',
-      icon: <Cpu className="w-5 h-5 text-purple-400" />,
-      skills: ['Node.js', 'Express.js', 'REST APIs', 'Python (AI Service)', 'MongoDB (Learning)'],
+      color: 'text-[#1B5DEF] dark:text-[#4A7FF7]',
+      icon: <Cpu className="w-4 h-4" />,
+      skills: ['Node.js & Express', 'Python & FastAPI', 'RESTful Architecture', 'MongoDB & SQL', 'API Integration'],
     },
     {
-      title: 'Tools & Workflow',
-      icon: <Wrench className="w-5 h-5 text-yellow-400" />,
-      skills: ['Git', 'GitHub', 'VS Code', 'Responsive Design', 'UI/UX Polish', 'Team Collaboration'],
+      title: 'Workflow & Tools',
+      color: 'text-emerald-500',
+      icon: <Wrench className="w-4 h-4" />,
+      skills: ['Git & GitHub', 'VS Code', 'Vercel Deployment', 'Postman API Testing', 'AI Companion Bots'],
     },
   ];
 
   return (
-    <section id="about" className="py-24 px-4 bg-[#090d16] relative">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Mission Profile</span>
+    <>
+      {/* ==================== 01 // ABOUT SECTION ==================== */}
+      <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-black/10 dark:border-white/10">
+        <div className="space-y-4 max-w-3xl">
+          <div className="font-mono text-xs text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold tracking-wider uppercase">
+            01 // BACKGROUND
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            About Star-Lord_I
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black dark:text-white">
+            Engineering with precision & personality.
           </h2>
-          <p className="text-gray-400 mt-2 max-w-xl mx-auto">
-            Computer Science graduate, frontend enthusiast, and space-opera aficionado building delightful web apps.
-          </p>
-        </div>
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Bio Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-1 bg-gray-900/60 border border-gray-800 rounded-2xl p-6 backdrop-blur-md relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-xl bg-purple-600/20 border border-purple-500/30 text-purple-400">
-                <GraduationCap className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">Education & Background</h3>
-                <p className="text-xs text-purple-400 font-mono">B.Tech in Computer Science (2022–2026)</p>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              I am Jiya Khan Pathan, coding under the persona <strong className="text-white">Star-Lord_I</strong>. I specialize in turning creative concepts into polished, responsive user interfaces with smooth interactions.
+          <div className="space-y-4 text-base text-gray-600 dark:text-gray-400 leading-relaxed pt-2">
+            <p>
+              I am a final-year Computer Science Engineering student (2022–2026). Over the past four years, I've developed a deep focus on creating resilient full-stack web applications that combine robust backend logic with clean, tactile frontends.
             </p>
-            <div className="pt-4 border-t border-gray-800 text-xs text-gray-400 flex items-center gap-2">
-              <Award className="w-4 h-4 text-cyan-400" />
-              <span>Frontend Intern experience at FuturePoint Technologies</span>
-            </div>
-          </motion.div>
+            <p>
+              My peers and online collaborators know me by my handle <strong className="text-black dark:text-white font-medium">Star-Lord</strong>. It’s a reflection of my curiosity, appreciation for great music, and a desire to build software with a distinctive creative voice.
+            </p>
+            <p>
+              During my internship at <strong className="text-black dark:text-white font-medium">FuturePoint Technologies</strong>, I built responsive client portals, optimized frontend rendering performance, and collaborated on clean UI architectures.
+            </p>
+          </div>
 
-          {/* Skills Grid */}
-          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {skillCategories.map((cat, idx) => (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 backdrop-blur-md hover:border-gray-700 transition-all"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-gray-800/80 border border-gray-700">
-                    {cat.icon}
-                  </div>
-                  <h4 className="font-semibold text-white text-sm">{cat.title}</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 rounded-lg bg-gray-800/60 border border-gray-700/50 text-gray-300 text-xs font-mono"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-mono text-gray-500 dark:text-gray-400">
+            <div className="flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-[#1B5DEF] dark:text-[#4A7FF7]" />
+              <span>B.Tech in Computer Science (2022–2026)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-[#E25327] dark:text-[#E8734B]" />
+              <span>Internship @ FuturePoint Tech</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ==================== 02 // SKILLS SECTION ==================== */}
+      <section id="skills" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-black/10 dark:border-white/10">
+        <div className="mb-8">
+          <div className="font-mono text-xs text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold tracking-wider uppercase mb-1">
+            02 // CAPABILITIES
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black dark:text-white">
+            Technologies I rely on.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {skillCategories.map((cat, idx) => (
+            <motion.div
+              key={cat.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="card-interactive bg-white dark:bg-[#1C1C1E] border border-black/10 dark:border-white/10 p-6 rounded-xl shadow-sm"
+            >
+              <div className="flex items-center space-x-2 mb-4">
+                <span className={cat.color}>{cat.icon}</span>
+                <h3 className={`font-mono text-xs uppercase font-bold tracking-wider ${cat.color}`}>
+                  {cat.title}
+                </h3>
+              </div>
+              <ul className="space-y-2.5 text-sm text-black dark:text-white font-medium">
+                {cat.skills.map((skill) => (
+                  <li key={skill} className="flex items-center space-x-2">
+                    <span className="text-xs text-gray-400 dark:text-gray-600">›</span>
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

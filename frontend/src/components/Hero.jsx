@@ -1,93 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Sparkles, Terminal, ArrowRight, Mail } from 'lucide-react';
+import { ArrowDown, ArrowRight, ExternalLink } from 'lucide-react';
+import TerminalBox from './TerminalBox';
 
-export default function Hero({ onOpenChatbot, onOpenMusic }) {
+export default function Hero({ onOpenMusic }) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-950/30 via-[#060810] to-[#060810]">
-      {/* Background Starfield effect simulation */}
-      <div className="absolute inset-0 bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:32px_32px] opacity-20 pointer-events-none" />
+    <section id="hero" className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 flex flex-col justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        {/* Status Badge */}
+        {/* Left Column: Professional Profile & Value Proposition */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-xs font-mono mb-6 backdrop-blur-md"
+          className="lg:col-span-7 space-y-6"
         >
-          <Sparkles className="w-3.5 h-3.5 text-yellow-400 animate-pulse" />
-          <span>Ready for launch • Frontend Developer & Creator</span>
-        </motion.div>
-
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6"
-        >
-          Navigating the <span className="text-gradient">Digital Cosmos</span> as Star-Lord_I
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
-        >
-          Hi, I'm <strong className="text-white font-medium">Jiya Khan Pathan</strong>. I craft immersive, high-performance web experiences with React, Tailwind CSS, and Framer Motion. Powered by curiosity and a retro mixtape state of mind.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-14"
-        >
-          <a
-            href="#projects"
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-medium shadow-lg shadow-purple-600/30 transition-all hover:scale-105"
-          >
-            <Rocket className="w-4 h-4" />
-            <span>Explore Projects</span>
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </a>
-
-          <button
-            onClick={onOpenChatbot}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 border border-gray-800 hover:border-purple-500/50 text-gray-200 hover:text-white font-medium transition-all shadow-lg hover:scale-105"
-          >
-            <Terminal className="w-4 h-4 text-cyan-400" />
-            <span>Ask Mascot AI</span>
-          </button>
-        </motion.div>
-
-        {/* Quick Social / Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="pt-8 border-t border-gray-800/80 flex flex-wrap justify-center gap-6 sm:gap-12 text-sm text-gray-400"
-        >
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
-            <span>Open for Opportunities</span>
+          {/* Status Pill */}
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#1C1C1E] text-xs font-mono text-gray-600 dark:text-gray-400 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Available for full-stack opportunities</span>
+            <span className="text-gray-300 dark:text-gray-700">|</span>
+            <span className="text-black dark:text-white font-semibold">CSE '26</span>
           </div>
-          <div className="flex items-center gap-6">
-            <a href="https://github.com/StarLord-I" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-              <span>GitHub</span>
+
+          {/* Main Name & Title */}
+          <div>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] text-black dark:text-white">
+              Hi, I'm <span className="text-[#1B5DEF] dark:text-[#4A7FF7]">Jiya Khan</span>.
+            </h1>
+            <div className="mt-2 flex items-center space-x-3 text-lg sm:text-xl font-semibold text-gray-600 dark:text-gray-400">
+              <span>Full-Stack Software Engineer</span>
+              <span className="text-xs font-mono px-2 py-0.5 rounded border border-black/10 dark:border-white/10 bg-gray-100 dark:bg-zinc-800 text-[#E25327] dark:text-[#E8734B] font-medium">
+                aka Star-Lord_I
+              </span>
+            </div>
+          </div>
+
+          {/* Bio */}
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+            I engineer resilient web applications with <strong className="text-black dark:text-white font-semibold">React, Vite, Node.js</strong>, and thoughtful interactive UX. Focused on clean codebases, performance, and memorable user experiences.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+            <a
+              href="#projects"
+              className="px-5 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold hover:opacity-90 transition-all flex items-center space-x-1 shadow-sm"
+            >
+              <span>view projects</span>
+              <ArrowDown className="w-3.5 h-3.5" />
             </a>
-            <a href="https://linkedin.com/in/jiya-khan-pathan-799827423" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-              <span>LinkedIn</span>
-            </a>
-            <a href="#contact" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-              <span>Contact</span>
+            <a
+              href="#contact"
+              className="px-5 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1C1C1E] text-black dark:text-white font-semibold hover:border-[#1B5DEF] dark:hover:border-[#4A7FF7] transition-all flex items-center space-x-1"
+            >
+              <span>get in touch</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
+
+          {/* Connect Links */}
+          <div className="flex items-center space-x-4 pt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] tracking-wider uppercase text-gray-400">CONNECT:</span>
+            <a
+              href="https://github.com/StarLord-I"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors flex items-center gap-1"
+            >
+              <span>github</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <a
+              href="https://linkedin.com/in/jiya-khan-pathan-799827423"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors flex items-center gap-1"
+            >
+              <span>linkedin</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <a
+              href="mailto:contact@jiya.dev"
+              className="hover:text-[#1B5DEF] dark:hover:text-[#4A7FF7] transition-colors"
+            >
+              email ↗
+            </a>
+          </div>
         </motion.div>
+
+        {/* Right Column: Mac-Style Terminal Box */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="lg:col-span-5"
+        >
+          <TerminalBox />
+        </motion.div>
+
       </div>
     </section>
   );
