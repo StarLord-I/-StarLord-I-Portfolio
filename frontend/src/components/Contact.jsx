@@ -12,23 +12,80 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage('');
+
+    const web3Key = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
     const apiUrl = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api/contact' : '/api/contact');
+
     try {
-      const res = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-        setFormState({ name: '', email: '', message: '' });
-        setTimeout(() => setSubmitted(false), 6000);
+      if (web3Key) {
+        // Direct Web3Forms delivery to user's inbox (jiyakhanpathan45@gmail.com)
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: web3Key,
+            name: formState.name,
+            email: formState.email,
+            message: formState.message,
+            from_name: `${formState.name} (Portfolio Inquiry)`,
+            subject: `🚀 Portfolio Message from ${formState.name}`,
+            replyto: formState.email,
+          }),
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          setSubmitted(true);
+          setFormState({ name: '', email: '', message: '' });
+          setTimeout(() => setSubmitted(false), 6000);
+        } else {
+          setErrorMessage(data.message || 'Transmission rejected. Please connect via direct email.');
+        }
+      } else if (formspreeId) {
+        // Formspree delivery
+        const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formState.name,
+            email: formState.email,
+            message: formState.message,
+          }),
+        });
+
+        if (res.ok) {
+          setSubmitted(true);
+          setFormState({ name: '', email: '', message: '' });
+          setTimeout(() => setSubmitted(false), 6000);
+        } else {
+          setErrorMessage('Could not deliver transmission. Please use direct email below.');
+        }
       } else {
-        const data = await res.json().catch(() => ({}));
-        setErrorMessage(data.error || 'Transmission rejected by server. Please connect via email or LinkedIn.');
+        // Fallback to local / server backend endpoint
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formState),
+        });
+
+        if (res.ok) {
+          setSubmitted(true);
+          setFormState({ name: '', email: '', message: '' });
+          setTimeout(() => setSubmitted(false), 6000);
+        } else {
+          const data = await res.json().catch(() => ({}));
+          setErrorMessage(data.error || 'Transmission rejected by server. Please connect via direct email.');
+        }
       }
     } catch {
-      setErrorMessage('Direct transmission endpoint currently offline. Please reach out directly via contact@jiya.dev or LinkedIn!');
+      setErrorMessage('Direct transmission endpoint currently offline. Click below to send direct email via your mail client!');
     } finally {
       setIsSubmitting(false);
     }
@@ -153,10 +210,10 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold">{errorMessage}</p>
                       <a
-                        href="mailto:contact@jiya.dev"
-                        className="underline text-[11px] mt-1 inline-block"
+                        href={`mailto:jiyakhanpathan45@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(formState.name || 'Recruiter')}&body=${encodeURIComponent(formState.message || '')}`}
+                        className="underline text-[11px] mt-1 inline-block text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold hover:opacity-85"
                       >
-                        Click here to send direct email ↗
+                        Click here to dispatch directly to jiyakhanpathan45@gmail.com ↗
                       </a>
                     </div>
                   </div>
