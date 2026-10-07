@@ -91,7 +91,7 @@ export default function Hero({ onOpenMusic }) {
               <ExternalLink className="w-3 h-3" />
             </a>
             <a
-              href="mailto:contact@jiya.dev"
+              href="mailto:jiyakhanpathan45@gmail.com"
               className="hover:text-[var(--blue-accent)] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--blue-accent)] rounded px-1"
             >
               email ↗

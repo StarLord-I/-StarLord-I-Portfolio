@@ -17,6 +17,14 @@ export default function Contact() {
     const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
     const apiUrl = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api/contact' : '/api/contact');
 
+    // Honeypot check for spam protection
+    if (e.target._gotcha && e.target._gotcha.value) {
+      console.warn('Bot submission intercepted via honeypot.');
+      setIsSubmitting(false);
+      setSubmitted(true);
+      return;
+    }
+
     try {
       if (web3Key) {
         // Direct Web3Forms delivery to user's inbox (jiyakhanpathan45@gmail.com)
@@ -41,7 +49,9 @@ export default function Contact() {
         if (data.success) {
           setSubmitted(true);
           setFormState({ name: '', email: '', message: '' });
-          setTimeout(() => setSubmitted(false), 6000);
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1200);
         } else {
           setErrorMessage(data.message || 'Transmission rejected. Please connect via direct email.');
         }
@@ -63,7 +73,9 @@ export default function Contact() {
         if (res.ok) {
           setSubmitted(true);
           setFormState({ name: '', email: '', message: '' });
-          setTimeout(() => setSubmitted(false), 6000);
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1200);
         } else {
           setErrorMessage('Could not deliver transmission. Please use direct email below.');
         }
@@ -78,7 +90,9 @@ export default function Contact() {
         if (res.ok) {
           setSubmitted(true);
           setFormState({ name: '', email: '', message: '' });
-          setTimeout(() => setSubmitted(false), 6000);
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1200);
         } else {
           const data = await res.json().catch(() => ({}));
           setErrorMessage(data.error || 'Transmission rejected by server. Please connect via direct email.');
@@ -125,14 +139,14 @@ export default function Contact() {
 
             <div className="space-y-3 text-xs font-mono">
               <a
-                href="mailto:contact@jiya.dev"
+                href="mailto:jiyakhanpathan45@gmail.com"
                 className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-[#242426] border border-hairline hover:border-[var(--blue-accent)] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-accent)]"
               >
                 <Mail className="w-4 h-4 text-[#1B5DEF] dark:text-[#4A7FF7]" />
                 <div className="flex-1">
                   <div className="text-[10px] text-gray-400 uppercase">Email Frequency</div>
                   <div className="text-black dark:text-white font-medium group-hover:text-[var(--blue-accent)] transition-colors">
-                    contact@jiya.dev
+                    jiyakhanpathan45@gmail.com
                   </div>
                 </div>
                 <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-[var(--blue-accent)] transition-colors" />
@@ -204,6 +218,16 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot field for anti-spam bot defense */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{ display: 'none' }}
+                  aria-hidden="true"
+                />
+
                 {errorMessage && (
                   <div className="p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono flex items-start gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
@@ -213,7 +237,7 @@ export default function Contact() {
                         href={`mailto:jiyakhanpathan45@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(formState.name || 'Recruiter')}&body=${encodeURIComponent(formState.message || '')}`}
                         className="underline text-[11px] mt-1 inline-block text-[#1B5DEF] dark:text-[#4A7FF7] font-semibold hover:opacity-85"
                       >
-                        Click here to dispatch directly to jiyakhanpathan45@gmail.com ↗
+                        Dispatch inquiry directly to jiyakhanpathan45@gmail.com ↗
                       </a>
                     </div>
                   </div>

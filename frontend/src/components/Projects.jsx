@@ -3,42 +3,6 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Code2, Film, Music, Building2 } from 'lucide-react';
 
 export default function Projects() {
-  const projects = [
-    {
-      title: 'CineFinder',
-      category: '01. WEB APP',
-      year: '2024',
-      badgeColor: 'text-[#E25327] dark:text-[#E8734B]',
-      description: 'A responsive movie discovery platform built with React and the MERN stack. Features physics-based interactions powered by Framer Motion and live TMDB telemetry.',
-      tags: ['React.js', 'Framer Motion', 'REST APIs', 'Tailwind CSS'],
-      liveUrl: 'https://cine-finder-mern.vercel.app',
-      githubUrl: 'https://github.com/StarLord-I',
-      icon: <Film className="w-4 h-4 text-[#E25327] dark:text-[#E8734B]" />,
-    },
-    {
-      title: 'Fab Five DHH',
-      category: '02. TRIBUTE',
-      year: '2024',
-      badgeColor: 'text-[#1B5DEF] dark:text-[#4A7FF7]',
-      description: 'An interactive frontend platform celebrating pioneers of Desi Hip-Hop. Built with high-performance animations, fluid motion graphics, and audio sync waves.',
-      tags: ['React', 'Framer Motion', 'Audio Sync', 'Tailwind'],
-      liveUrl: 'https://fab-five-of-dhh.vercel.app',
-      githubUrl: 'https://github.com/StarLord-I',
-      icon: <Music className="w-4 h-4 text-[#1B5DEF] dark:text-[#4A7FF7]" />,
-    },
-    {
-      title: 'Zilla Parishad Management System',
-      category: '03. ENTERPRISE',
-      year: '2025',
-      badgeColor: 'text-emerald-500',
-      description: 'A civic administrative records management web application built for Zilla Parishad, Chandrapur. Streamlined public records dispatch and multi-tier databases.',
-      tags: ['Node.js', 'Express', 'Relational DB', 'Stakeholder Verified'],
-      liveUrl: null,
-      githubUrl: 'https://github.com/StarLord-I',
-      icon: <Building2 className="w-4 h-4 text-emerald-500" />,
-    },
-  ];
-
   return (
     <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-hairline">
       

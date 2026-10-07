@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>404 Page Not Found | Jiya Khan Pathan</title>
+    <meta name="title" content="404 Page Not Found | Jiya Khan Pathan" />
+    <meta
+      name="description"
+      content="The requested frequency could not be found. Navigate back to Jiya Khan Pathan's portfolio to discover featured projects, technical skills, and engineering experience."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#0B0B0C" />
+    <style>
+      :root {
+        --bg: #0B0B0C;
+        --card: #1C1C1E;
+        --card-hover: #242426;
+        --border: #2E2E32;
+        --text-primary: #EDEDED;
+        --text-secondary: #9E9EA4;
+        --blue-accent: #4A7FF7;
+        --orange-accent: #E8734B;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: var(--bg);
+        color: var(--text-primary);
+        font-family: var(--sans);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-image: radial-gradient(#2A2A2E 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .nav-bar {
+        border-bottom: 1px solid var(--border);
+        background: rgba(11, 11, 12, 0.85);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ef4444;
+        box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+      }
+      .brand-moniker {
+        font-family: var(--mono);
+        color: var(--text-secondary);
+        font-size: 11px;
+        font-weight: 400;
+      }
+      .container {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 60px 20px 40px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(239, 68, 68, 0.12);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: clamp(32px, 6vw, 48px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 12px;
+      }
+      .description {
+        color: var(--text-secondary);
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 36px;
+      }
+      .terminal-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 36px;
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+      .t-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .t-red { background: #ff5f56; }
+      .t-yellow { background: #ffbd2e; }
+      .t-green { background: #27c93f; }
+      .t-title {
+        color: var(--text-secondary);
+        margin-left: 8px;
+        font-size: 11px;
+      }
+      .terminal-cmd {
+        color: var(--blue-accent);
+        margin-bottom: 8px;
+      }
+      .terminal-out {
+        color: #f87171;
+        line-height: 1.6;
+      }
+      .grid-title {
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+      }
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+      .nav-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .nav-card:hover {
+        background: var(--card-hover);
+        border-color: var(--blue-accent);
+        transform: translateY(-2px);
+      }
+      .card-tag {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--blue-accent);
+      }
+      .card-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .card-desc {
+        font-size: 11px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+      .footer {
+        border-top: 1px solid var(--border);
+        padding: 24px 20px;
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+      .footer a {
+        color: var(--blue-accent);
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav-bar">
+      <div class="nav-container">
+        <a href="/" class="brand">
+          <span class="pulse-dot"></span>
+          <span>jiya.dev</span>
+          <span class="brand-moniker">// starlord_i</span>
+        </a>
+        <a href="/" style="font-family: var(--mono); font-size: 12px; color: var(--blue-accent); text-decoration: none;">
+          ← Return to Mission Control
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="badge">
+        <span>● Status 404</span>
+        <span>// Coordinate Not Found</span>
+      </div>
+
+      <h1>Signal Lost in Deep Space.</h1>
+      <p class="description">
+        The frequency or orbital path you requested does not exist in the fleet records. You might have followed an outdated link or mistyped the coordinate.
+      </p>
+
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <span class="t-dot t-red"></span>
+          <span class="t-dot t-yellow"></span>
+          <span class="t-dot t-green"></span>
+          <span class="t-title">telemetry-probe — zsh — 404 Not Found</span>
+        </div>
+        <p class="terminal-cmd">$ curl -I https://jiya.dev<span id="path-echo">/current-route</span></p>
+        <p class="terminal-out">
+          HTTP/2 404 Not Found<br />
+          error: "ERR_SIGNAL_NOT_RESOLVED"<br />
+          remedy: "Redirecting pilot to active navigation frequencies..."
+        </p>
+      </div>
+
+      <div class="grid-title">Active Fleet Frequencies:</div>
+      <div class="links-grid">
+        <a href="/" class="nav-card">
+          <span class="card-tag">01 // HOME</span>
+          <span class="card-title">Mission Control</span>
+          <span class="card-desc">Return to main portfolio overview &amp; developer telemetry.</span>
+        </a>
+
+        <a href="/#projects" class="nav-card">
+          <span class="card-tag">02 // WORK</span>
+          <span class="card-title">Featured Projects</span>
+          <span class="card-desc">CineFinder, Fab Five DHH, and civic engineering builds.</span>
+        </a>
+
+        <a href="/#experience" class="nav-card">
+          <span class="card-tag">03 // BACKGROUND</span>
+          <span class="card-title">Experience &amp; Skills</span>
+          <span class="card-desc">FuturePoint internship timeline &amp; engineering capabilities.</span>
+        </a>
+
+        <a href="/#contact" class="nav-card">
+          <span class="card-tag">04 // CONNECT</span>
+          <span class="card-title">Send Transmission</span>
+          <span class="card-desc">Direct contact frequency for roles and collaborations.</span>
+        </a>
+
+        <a href="/privacy" class="nav-card">
+          <span class="card-tag">05 // LEGAL</span>
+          <span class="card-title">Privacy Policy</span>
+          <span class="card-desc">Review telemetry, data collection, and security practices.</span>
+        </a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <span>jiya.dev • Jiya Khan Pathan // Star-Lord_I</span> •
+        <a href="/">Return to Mission Control</a>
+      </div>
+    </footer>
+
+    <script>
+      // Display current URL in terminal preview
+      try {
+        const path = window.location.pathname;
+        if (path && path !== '/') {
+          document.getElementById('path-echo').textContent = path;
+        }
+      } catch (e) {}
+    </script>
+  </body>
+</html>

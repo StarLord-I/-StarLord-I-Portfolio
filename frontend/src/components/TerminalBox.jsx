@@ -3,7 +3,6 @@ import { Terminal, Copy, Check } from 'lucide-react';
 
 export default function TerminalBox() {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState('overview');
 
   const handleCopy = async () => {
     try {

@@ -1,0 +1,9 @@
+# robots.txt for https://jiya.dev
+# Generated for production launch
+
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /api/
+
+Sitemap: https://jiya.dev/sitemap.xml

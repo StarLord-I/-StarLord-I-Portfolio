@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Sparkles, Bot, RefreshCw } from 'lucide-react';
+import { X, Send, RefreshCw } from 'lucide-react';
 
 export default function MascotChatbot() {
   const [isOpen, setIsOpen] = useState(false);
